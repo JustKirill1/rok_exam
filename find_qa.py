@@ -1,5 +1,12 @@
 import json
 from Levenshtein import distance as levenshtein_distance
+def levenshtein_similarity(str1, str2):
+    dist = levenshtein_distance(str1, str2)
+    max_len = max(len(str1), len(str2))
+    if max_len == 0:
+        return 100.0
+    similarity = (1 - dist / max_len) * 100
+    return similarity
 
 def load_questions_and_answers(file_path):
     with open(file_path, 'r', encoding='utf-8') as file:
@@ -32,19 +39,19 @@ def find_most_similar_question(input_question, questions_and_answers):
                     most_similar_question = question
                     answer = qa['answer']
                     is_confirmed = qa['confirmed']
-
-    return most_similar_question, answer, min_distance, is_confirmed
+    similarity = levenshtein_similarity(input_question, most_similar_question)
+    return most_similar_question, answer, min_distance, is_confirmed, similarity
 
 
 # Основная функция
 def main(input_question):
     file_path = 'all-questions.json'
     questions_and_answers = load_questions_and_answers(file_path)
-    most_similar_question, answer, distance, is_confirmed = find_most_similar_question(input_question,
+    most_similar_question, answer, distance, is_confirmed, similarity = find_most_similar_question(input_question,
                                                                                        questions_and_answers)
     confirmed_symbol = "✅" if is_confirmed else ""
 
-    return f"{most_similar_question}: {answer} {confirmed_symbol}"
+    return f"{most_similar_question}: {answer} {confirmed_symbol} ({similarity:.2f}%)"
 
 
 if __name__ == "__main__":
