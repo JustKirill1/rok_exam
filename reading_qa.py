@@ -5,6 +5,7 @@ import mss
 import re
 import time
 import threading
+import find_qa
 
 # Координаты областей (левая верхняя X, Y, правая нижняя X, Y)
 REGIONS = {
@@ -46,30 +47,28 @@ def scan_loop():
             img = preprocess_image(img)
             text = extract_text(img)
             data[key] = text
-
+        question = f"{data.get('question')}"
         output = f"\n📜 ВОПРОС:\n{data.get('question', 'Ошибка')}\n\n"
         output += "📝 ВАРИАНТЫ ОТВЕТОВ:\n"
         for key in ["A", "B", "C", "D"]:
             output += f"{key}: {data.get(key, 'Ошибка')}\n"
-
-        if output != previous_text:  # Только если текст изменился
+        if output != previous_text:
             previous_text = output
-            print("\n" + "=" * 50)  # Разделитель для удобства копирования
+            print("\n" + "=" * 50)
             print(output)
+            print(find_qa.main(question))
+        time.sleep(1)
 
-        time.sleep(1)  # Проверка раз в 2 секунды
 
-# Запускаем фоновый поток
 threading.Thread(target=scan_loop, daemon=True).start()
 
-# Основной поток остаётся свободным для копирования текста
 print("✅ Фоновый процесс запущен. Ожидание изменений текста...\n")
 print("📌 Текущий вопрос и ответы будут обновляться только при изменении.")
 print("🔄 Обновление каждые 2 секунды. Чтобы остановить, нажми Ctrl+C.")
 
 while True:
     try:
-        time.sleep(1)  # Держим основной поток активным
+        time.sleep(1)
     except KeyboardInterrupt:
         print("\n🛑 Завершение работы.")
         break
