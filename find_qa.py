@@ -1,46 +1,51 @@
 import json
 from Levenshtein import distance as levenshtein_distance
 
-# Загрузка вопросов из JSON-файла
 def load_questions_and_answers(file_path):
     with open(file_path, 'r', encoding='utf-8') as file:
         data = json.load(file)
-    # Извлекаем все русские вопросы и соответствующие ответы из массива data
+
     questions_and_answers = []
     for item in data['data']:
-        if 'q' in item and 'ru' in item['q']:  # Проверка на наличие ключей
+        if 'q' in item and 'ru' in item['q']:
             questions_and_answers.append({
                 'question': item['q']['ru'],
-                'answer': item['a']['ru']
+                'answer': item['a']['ru'],
+                'confirmed': item.get('confirmed', False)
             })
     return questions_and_answers
+
+
 # Поиск наиболее подходящего вопроса
 def find_most_similar_question(input_question, questions_and_answers):
     min_distance = float('inf')
     most_similar_question = None
     answer = None
+    is_confirmed = False
 
     for qa in questions_and_answers:
-        # Сравниваем входной вопрос с каждым вопросом в списке
         for question in qa['question']:
-            if question and isinstance(question, str):  # Проверка на строку
+            if question and isinstance(question, str):
                 dist = levenshtein_distance(input_question, question)
                 if dist < min_distance:
                     min_distance = dist
                     most_similar_question = question
                     answer = qa['answer']
+                    is_confirmed = qa['confirmed']
 
-    return most_similar_question, answer, min_distance
+    return most_similar_question, answer, min_distance, is_confirmed
+
 
 # Основная функция
-def main():
-    file_path = 'all-questions.json'  # Укажите путь к вашему JSON-файлу
+def main(input_question):
+    file_path = 'all-questions.json'
     questions_and_answers = load_questions_and_answers(file_path)
+    most_similar_question, answer, distance, is_confirmed = find_most_similar_question(input_question,
+                                                                                       questions_and_answers)
+    confirmed_symbol = "✅" if is_confirmed else ""
 
-    input_question = "Какой из этих пг мтг жно использовать, чтобы улучшить накоманлира?"
-    most_similar_question, answer, distance = find_most_similar_question(input_question, questions_and_answers)
-    return f"{most_similar_question}: {answer}"
+    return f"{most_similar_question}: {answer} {confirmed_symbol}"
 
 
 if __name__ == "__main__":
-    main()
+    print(main("Какой из этих пг мтг жно использовать, чтобы улучшить накоманлира?"))
