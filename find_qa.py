@@ -51,7 +51,7 @@ def main(input_question):
                                                                                        questions_and_answers)
     confirmed_symbol = "✅" if is_confirmed else ""
 
-    return f"{most_similar_question}: {answer} {confirmed_symbol} ({similarity:.2f}%)"
+    return f"{most_similar_question}: \n{answer} {confirmed_symbol} ({similarity:.2f}%)"
 
 
 if __name__ == "__main__":
