@@ -18,7 +18,8 @@ D: Ответ D
 ```
 ## 📝 Лицензия
 
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/JustKirill1/rok_exam/blob/master/LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/JustKirill1/rok_exam/blob/master/LICENSE) file for details. 
+
 This project is an independent, fan-made script and is not affiliated with, endorsed by, or in any way officially connected to Lilith Games.  
 Rise of Kingdoms is a trademark of Lilith Games. All trademarks, service marks, trade names, trade dress, product names and logos appearing on the site are the property of their respective owners.  
 This site is intended for entertainment and informational purposes only.
