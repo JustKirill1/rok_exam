@@ -7,7 +7,6 @@ import time
 import threading
 import find_qa
 
-# Координаты областей (левая верхняя X, Y, правая нижняя X, Y)
 REGIONS = {
     "question": (772, 445, 1789, 547),
     "A": (856, 628, 1349, 720),
@@ -16,7 +15,7 @@ REGIONS = {
     "D": (1435, 755, 1932, 846),
 }
 
-previous_text = ""  # Буфер для хранения предыдущего текста
+previous_text = ""
 
 
 def capture_region(region):
