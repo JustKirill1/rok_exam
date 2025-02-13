@@ -8,6 +8,7 @@ LOCAL_FILE = "all-questions.json"
 UPDATE_LOG = "updates.txt"
 
 
+# Функция загрузки JSON-файла с сервера
 def download_json():
     response = requests.get(URL)
     if response.status_code == 200:
@@ -15,6 +16,7 @@ def download_json():
     return None
 
 
+# Функция загрузки локального JSON-файла
 def load_local_json():
     if os.path.exists(LOCAL_FILE):
         with open(LOCAL_FILE, "r", encoding="utf-8") as f:
@@ -22,12 +24,21 @@ def load_local_json():
     return {"data": []}
 
 
+# Функция проверки изменений
 def check_updates(new_data, old_data):
     old_questions = {q["_id"]: q for q in old_data.get("data", [])}
     new_questions = {q["_id"]: q for q in new_data.get("data", [])}
 
     updates = []
 
+    # Проверяем новые вопросы
+    for q_id, q_info in new_questions.items():
+        if q_id not in old_questions:
+            question_text = q_info["q"].get("ru", ["Нет текста"])[0] if q_info["q"].get("ru") else "Нет текста"
+            updates.append(f"Появился новый вопрос: {question_text}📌")
+            print(f"DEBUG: Найден новый вопрос '{question_text}'")  # Отладка
+
+    # Проверяем подтвержденные вопросы
     for q_id, q_info in new_questions.items():
         old_confirmed = old_questions.get(q_id, {}).get("confirmed", False)
         new_confirmed = q_info.get("confirmed", False)
@@ -35,12 +46,13 @@ def check_updates(new_data, old_data):
         question_text = q_info["q"].get("ru", ["Нет текста"])[0] if q_info["q"].get("ru") else "Нет текста"
 
         if not old_confirmed and new_confirmed:
-            updates.append(f"У вопроса '{question_text}' появился статус подтвержден ✅")
-            print(f"DEBUG: Подтвержден статус вопроса '{question_text}'")  # Отладка
+            updates.append(f"У вопроса '{question_text}' появился статус подтвержден✅")
+            print(f"DEBUG: Подтверждён статус вопроса '{question_text}'")  # Отладка
 
     return updates
 
 
+# Основной код
 def main():
     new_data = download_json()
     if not new_data:
