@@ -38445,6 +38445,216 @@
         },
         {
             "q": {
+                "en": [
+                    "What is the standard boiling point of water?"
+                ],
+                "ru": [],
+                "it": []
+            },
+            "a": {
+                "en": "100°C",
+                "ru": "",
+                "it": ""
+            },
+            "comment": {
+                "en": ""
+            },
+            "_id": "67affce79ee94934ca422789",
+            "is_gpt_answer": true,
+            "confirmed": false,
+            "asked_times": 0
+        },
+        {
+            "q": {
+                "en": [
+                    "In which of these sports do you use your hands and arms to hit the ball?"
+                ],
+                "ru": [],
+                "it": []
+            },
+            "a": {
+                "en": "Volleyball",
+                "ru": "",
+                "it": ""
+            },
+            "comment": {
+                "en": ""
+            },
+            "_id": "67affcfc9ee94934ca422790",
+            "is_gpt_answer": true,
+            "confirmed": false,
+            "asked_times": 0
+        },
+        {
+            "q": {
+                "en": [
+                    "What is the closest planet to Earth?"
+                ],
+                "ru": [],
+                "it": []
+            },
+            "a": {
+                "en": "Venus",
+                "ru": "",
+                "it": ""
+            },
+            "comment": {
+                "en": ""
+            },
+            "_id": "67affd129ee94934ca422797",
+            "is_gpt_answer": true,
+            "confirmed": false,
+            "asked_times": 0
+        },
+        {
+            "q": {
+                "en": [
+                    "Which of these fruits grows on trees?"
+                ],
+                "ru": [],
+                "it": []
+            },
+            "a": {
+                "en": "Apple",
+                "ru": "",
+                "it": ""
+            },
+            "comment": {
+                "en": ""
+            },
+            "_id": "67affd299ee94934ca42279e",
+            "is_gpt_answer": true,
+            "confirmed": false,
+            "asked_times": 0
+        },
+        {
+            "q": {
+                "en": [
+                    "What were most ancient Chinese books written on?"
+                ],
+                "ru": [],
+                "it": []
+            },
+            "a": {
+                "en": "Bamboo",
+                "ru": "",
+                "it": ""
+            },
+            "comment": {
+                "en": ""
+            },
+            "_id": "67affd409ee94934ca4227a6",
+            "is_gpt_answer": true,
+            "confirmed": false,
+            "asked_times": 0
+        },
+        {
+            "q": {
+                "en": [
+                    "Which of the following is MOТ a firearm?"
+                ],
+                "ru": [],
+                "it": []
+            },
+            "a": {
+                "en": "Bow",
+                "ru": "",
+                "it": ""
+            },
+            "comment": {
+                "en": ""
+            },
+            "_id": "67b089889ee94934ca42377b",
+            "is_gpt_answer": true,
+            "confirmed": false,
+            "asked_times": 0
+        },
+        {
+            "q": {
+                "en": [
+                    "Which of these could be a binary number?"
+                ],
+                "ru": [],
+                "it": []
+            },
+            "a": {
+                "en": "0101",
+                "ru": "",
+                "it": ""
+            },
+            "comment": {
+                "en": ""
+            },
+            "_id": "67b089a39ee94934ca4237c5",
+            "is_gpt_answer": true,
+            "confirmed": false,
+            "asked_times": 0
+        },
+        {
+            "q": {
+                "ru": [
+                    "В каком из этих городов самая высокая средняя температура в декабре?"
+                ],
+                "en": [],
+                "it": []
+            },
+            "a": {
+                "ru": "Сидней",
+                "en": "",
+                "it": ""
+            },
+            "comment": {
+                "ru": ""
+            },
+            "_id": "67b089d09ee94934ca4237d0",
+            "is_gpt_answer": true,
+            "confirmed": false,
+            "asked_times": 0
+        },
+        {
+            "q": {
+                "en": [
+                    "Which of these cities has the highest average temperature in December?"
+                ],
+                "ru": [],
+                "it": []
+            },
+            "a": {
+                "en": "Sydney",
+                "ru": "",
+                "it": ""
+            },
+            "comment": {
+                "en": ""
+            },
+            "_id": "67b089d19ee94934ca4237d3",
+            "is_gpt_answer": true,
+            "confirmed": false,
+            "asked_times": 0
+        },
+        {
+            "q": {
+                "ru": [
+                    "На каком континенте находится самый большой тропический лес в мире?"
+                ],
+                "en": [],
+                "it": []
+            },
+            "a": {
+                "ru": "Южная Америка",
+                "en": "",
+                "it": ""
+            },
+            "comment": {
+                "ru": ""
+            },
+            "_id": "67b089e19ee94934ca4237da",
+            "is_gpt_answer": true,
+            "confirmed": false,
+            "asked_times": 0
+        },
+        {
+            "q": {
                 "en": [],
                 "it": [],
                 "ru": [
